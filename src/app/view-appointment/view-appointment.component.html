@@ -1,0 +1,38 @@
+<div class="container mx-auto">
+    <!-- Fixed header table-->
+  <div class="table-responsive">
+    <table class="table table-fixed table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col" class="h1">Sl NO</th>
+        <th scope="col" class="h2">Name</th>
+        <th scope="col" class="h3">Address</th>
+        <th scope="col" class="h4">City</th>
+        <th scope="col" class="h5">Package</th>
+        <th scope="col" class="h6">Trainer Preference</th>
+        <th scope="col" class="h7">phonenumber</th>
+        <!-- <th scope="col">Edit</th>
+        <th scope="col">Delete</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of allUser" class="table-light">
+        <td>{{user.id}}</td>
+        <th scope="row">{{user.firstname}} {{user.lastname}}</th>
+        <td>{{user.streetaddress}}</td>
+        <td>{{user.city}}</td>
+        <td>{{user.packages}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.phonenumber}}</td>
+        <td colspan="2"><button type="button" class="btn btn-primary btn-sm" (click)="editUser(user)">Edit</button>  
+          <button type="button" class="btn btn-danger btn-sm" (click)="delUser(user)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+</div>
+
+
+

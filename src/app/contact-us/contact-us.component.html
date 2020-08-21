@@ -1,0 +1,83 @@
+<div class="container">
+<div class=" text-center mt-5 text-white ">
+    <h1> Contact Form</h1>
+</div>
+<div class="row ">
+<div class="col-lg-7 mx-auto">
+<div class="card mt-2 mx-auto p-4 bg-light">
+<div class="container">
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+        <label for="exampleInputfirstname" >First Name</label>
+        <input autoFocus type="text" class="form-control" formControlName="firstname" placeholder="First Name">
+        <small class="form-text text-muted"
+            *ngIf="contactForm.controls.firstname.touched && contactForm.controls.firstname.errors?.required">
+            Please enter first name.!
+        </small>
+    </div>
+    </div>
+    
+    <div class="form-group col-md-2"></div>
+
+    <div class="col-md-4">
+    <div class="form-group">
+        <label for="exampleInputlastname">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+        <small class="form-text text-muted"
+            *ngIf="contactForm.controls.lastname.touched && contactForm.controls.lastname.errors?.required">
+            Please enter last name.!
+        </small>
+    </div>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-6">
+    <div class="form-group">
+        <label for="exampleInputemail">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Eamil">
+        <small class="form-text text-muted"
+            *ngIf="contactForm.controls.email.touched && contactForm.controls.email.errors?.required">
+            Please enter email.!
+        </small>
+        <small class="form-text text-muted"
+            *ngIf="contactForm.controls.email.touched && contactForm.controls.email.errors?.email">
+            Enter the valid email .!
+        </small>
+    </div>
+    </div>
+
+    <div class="col-md-4">
+    <div class="form-group">
+        <label for="exampleInputphonenumber">Phone Number</label>
+        <input type="number" class="form-control" formControlName="phonenumber" placeholder="Phone Number">
+        <small class="form-text text-muted"
+            *ngIf="contactForm.controls.phonenumber.touched && contactForm.controls.phonenumber.errors?.required">
+            Please enter phone number.!
+        </small>
+    </div>
+    </div>
+    </div>
+
+    
+    <div class="form-group">
+        <label for="exampleInputmessage">Message</label>
+        <textarea type="text" class="form-control" formControlName="message" placeholder="Message"></textarea>
+        <small class="form-text text-muted"
+            *ngIf="contactForm.controls.message.touched && contactForm.controls.message.errors?.required">
+            Please enter message.!
+        </small>
+
+    </div>
+      <button type="submit"  [disabled]="contactForm.invalid" >Submit</button>
+           
+        
+
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>

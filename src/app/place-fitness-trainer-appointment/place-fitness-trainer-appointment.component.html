@@ -1,0 +1,177 @@
+ 
+
+<div class="container-fluid mt-5"> <div class=" text-center text-white">
+    <h1>Place Appointment Form</h1>
+</div>
+<div class="row ">
+    <div class="col-lg-7 mx-auto">
+        <div class="card mt-2 mx-auto p-4 bg-light">
+            <div class="card-body bg-light">
+                <div class="container">
+                    <form [formGroup]="fitnessForm" (ngSubmit)="onSubmit()" novalidate>
+                        <label style="font-size: 30px;">Make Appointment</label>
+                        <!-- First name -->
+
+                        <div class="form-row">
+                        <div class="form-group">
+                            <label for="exampleInputfirstname">First Name</label>
+                            <input autoFocus type="text input--style-5" class="form-control" formControlName="firstname" placeholder="First Name" autofocus>
+                            <small class="form-text text-muted"
+                                *ngIf="fitnessForm.controls.firstname.touched && fitnessForm.controls.firstname.errors?.required">
+                                Please enter first name.!
+                            </small>
+                        </div>
+
+                        <div class="form-group col-md-2"></div>
+                    
+                        <div class="form-group">
+                            <label for="exampleInputlastname">Last Name</label>
+                            <input type="text" class="form-control" formControlName="lastname" placeholder="Last Name" >
+                            <small class="form-text text-muted"
+                                *ngIf="fitnessForm.controls.lastname.touched && fitnessForm.controls.lastname.errors?.required">
+                                Please enter last name.!
+                            </small>
+                        </div>
+                    </div>
+                    
+                        <div class="form-group">
+                            <label for="exampleInputage">Age</label>
+                            <input type="number" class="form-control" formControlName="age" placeholder="age">
+                            <small class="form-text text-muted"
+                                *ngIf="fitnessForm.controls.age.touched && fitnessForm.controls.age.errors?.required">
+                                Please enter age .!
+                            </small>
+                            <small class="form-text text-muted"
+                                *ngIf="fitnessForm.controls.age.touched && (fitnessForm.controls.age.errors?.min || fitnessForm.controls.age.errors?.max)">
+                                Please enter age between 6 to 60 !
+                            </small>
+                        </div>
+                    
+                        <div class="form-row">
+                        <div class="form-group col-md-7">
+                            <label for="exampleInputemail">Email</label>
+                            <input type="email" class="form-control" formControlName="email" placeholder="Eamil">
+                            <small class="form-text text-muted"
+                                *ngIf="fitnessForm.controls.email.touched && fitnessForm.controls.email.errors?.required">
+                                Please enter email.!
+                            </small>
+                            <small class="form-text text-muted"
+                                *ngIf="fitnessForm.controls.email.touched && fitnessForm.controls.email.errors?.email">
+                                Enter the valid email .!
+                            </small>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="exampleInputphonenumber">Phone number</label>
+                            <input type="number" class="form-control" formControlName="phonenumber" placeholder="phonenumber">
+                            <small class="form-text text-muted"
+                              *ngIf="fitnessForm.controls.phonenumber.touched && fitnessForm.controls.phonenumber.errors?.required">
+                              Please enter phonenumber!
+                          </small>
+                          </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="exampleInputstreetaddress">Street address</label>
+                            <textarea type="text" class="form-control" formControlName="streetaddress" placeholder="streetaddress"></textarea>
+                            <small class="form-text text-muted"
+                                *ngIf="fitnessForm.controls.streetaddress.touched && fitnessForm.controls.streetaddress.errors?.required">
+                                Please enter streetaddress.!
+                            </small>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                              <label for="exampleInputCity">City</label>
+                              <input type="text" class="form-control" formControlName="city" placeholder="city">
+                              <small class="form-text text-muted"
+                                *ngIf="fitnessForm.controls.city.touched && fitnessForm.controls.city.errors?.required">
+                                Please enter City!
+                            </small>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="exampleInputState">State</label>
+                                <input type="text" class="form-control" formControlName="state" placeholder="state">
+                                <small class="form-text text-muted"
+                                  *ngIf="fitnessForm.controls.state.touched && fitnessForm.controls.state.errors?.required">
+                                  Please enter State!
+                              </small>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="exampleInputcountry">Country</label>
+                                <input type="text" class="form-control" formControlName="country" placeholder="country">
+                                <small class="form-text text-muted"
+                                  *ngIf="fitnessForm.controls.country.touched && fitnessForm.controls.country.errors?.required">
+                                  Please enter country!
+                              </small>
+                            </div>
+
+                            <div class="form-group col-md-2">   
+                                <label for="inputState">Pincode</label>                      
+                            <input type="number" class="form-control" formControlName="pincode" placeholder="pincode">
+                            <small class="form-text text-muted"
+                                *ngIf="fitnessForm.controls.pincode.touched && fitnessForm.controls.pincode.errors?.required">
+                                Please enter pincode !
+                            </small>
+                            <small class="form-text text-muted"
+                                *ngIf="fitnessForm.controls.pincode.touched && (fitnessForm.controls.pincode.errors?.min || fitnessForm.controls.pincode.errors?.max) ">
+                                6 digits bro !
+                            </small>
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="exampleInputpackage">Package </label><br>
+                            <input type="radio" formControlName="packages" id="Silver" name="packages" value="Silver" style="margin-right: 0">
+                            <label for="Silver" style="font-size: 30px;">Silver(Rs 2500/-)</label>
+                            <input type="radio" formControlName="packages" id="Gold" name="packages" value="Gold" style="margin-right: 0">
+                            <label for="Gold" style="font-size: 30px;">Gold(Rs 5000/-)</label>
+                            <br>
+                            <input type="radio" formControlName="packages" id="Platinum" name="packages" value="Platinum" style="margin-right: 0">
+                            <label for="Platinum" style="font-size: 30px;">Platinum(Rs 7000/-)</label>
+                            
+                            
+                        </div>
+                        <div class="form-row">
+                        <div class="form-group">
+                            <label for="exampleInputgender">Trainer Preference</label><br>
+                            <input type="radio" formControlName="gender" id="male" name="gender" value="male">
+                            <label for="male">Male</label><br>
+                            <input type="radio" formControlName="gender" id="female" name="gender" value="female">
+                            <label for="female">Female</label><br>
+                        </div>
+                        <div class="form-group col-md-2"></div>
+                        <div class="form-group col-md-2">   
+                            <label for="inputinr">INR</label>                      
+                        <input type="number" class="form-control" formControlName="inr" placeholder="inr">
+                        <small class="form-text text-muted"
+                            *ngIf="fitnessForm.controls.inr.touched && fitnessForm.controls.inr.errors?.required">
+                            Please enter INR !
+                        </small>
+                        <small class="form-text text-muted"
+                            *ngIf="fitnessForm.controls.inr.touched && (fitnessForm.controls.inr.errors?.min || fitnessForm.controls.inr.errors?.max) ">
+                            6 digits bro !
+                        </small>
+                        </div>
+                        <div class="form-group col-md-2">   
+                            <label for="inputpaisa">Paisa</label>                      
+                        <input type="number" class="form-control" formControlName="paisa" placeholder="paisa">
+                        <small class="form-text text-muted"
+                            *ngIf="fitnessForm.controls.paisa.touched && fitnessForm.controls.paisa.errors?.required">
+                            Please enter INR !
+                        </small>
+                        <small class="form-text text-muted"
+                            *ngIf="fitnessForm.controls.paisa.touched && (fitnessForm.controls.paisa.errors?.min || fitnessForm.controls.paisa.errors?.max) ">
+                            6 digits bro !
+                        </small>
+                        </div>
+                         </div>
+                    
+                        <button type="submit"  [disabled]="fitnessForm.invalid" >Submit</button>
+                    
+                    </form>
+                </div>
+            </div>
+        </div> <!-- /.8 -->
+    </div> <!-- /.row-->
+</div>
+</div>
